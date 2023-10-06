@@ -1,0 +1,87 @@
+.main_container{
+    width: 70%;
+    height: 100%;
+}
+
+.main_container, .main_container-form{
+    flex-direction: column;
+}
+
+.main_container-form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    height: 30%;
+}
+
+.main_container_form-inputs{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main_container_form-inputs-1, .main_container_form-inputs-2{
+    position: relative;
+}
+
+label{
+    position: absolute;
+    left: 5px;
+    top: 0;
+}
+
+.main_container_form_inputs-country, .main_container_form_inputs-city{
+    border: 0;
+    outline: 1px solid;
+    padding: 3px;
+    height: 2em;
+}
+
+.main_container_form_inputs-country:focus ~ label, .main_container_form_inputs-country:active ~ label, 
+.main_container_form_inputs-city:focus ~ label, 
+.main_container_form_inputs-city:active ~ label, .main_container_form_inputs-country:valid ~ label, .main_container_form_inputs-city:valid ~ label{
+    top: -10px;
+    left: 6px;
+    z-index: 1;
+    background-color: white;
+    margin: 0;
+    outline: 1px;
+    transition: all 200ms ease;
+}
+
+/* .main_container_form_inputs-country:not(:active) ~ label, 
+.main_container_form_inputs-city:not(:active) ~ label{
+    left: 5px;
+    top: 0;
+    transition: all 250ms ease;
+} */
+/* .main_container_form_inputs-country, .main_container_form_inputs-country{
+    padding: 10px;
+    
+}
+
+.label_country, .label_city{
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: 10px 2px;
+    transition: translate 500ms, scale 500ms;
+}
+
+.main_container_form_inputs-country:focus ~
+.label_country, .main_container_form_inputs-country:valid ~
+.label_country{
+    padding-inline: 5px;
+    translate: 10px -14px;
+    scale: 0.7;
+}
+
+.main_container_form_inputs-city:focus,
+.label_city, .main_container_form_inputs-city:valid +
+.label_city{
+    padding-inline: 5px;
+    translate: 10px -14px;
+    scale: 0.7;
+} */
