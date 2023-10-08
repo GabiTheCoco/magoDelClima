@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="/src/styles.css">
         <link rel="stylesheet" href="/src/components/main_container.css">
+        <link rel="stylesheet" href="/src/components/weather_map_section.css">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> libreria de iconos -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
@@ -23,12 +24,12 @@
                 <form class="main_container-form" main_container-form> 
                     <section class="main_container_form-inputs" form_inputs>
                         <div class="main_container_form-inputs-1" form_inputs-1>
-                            <input type="text" name="pais" class="main_container_form_inputs-country" id="pais" input_city>
+                            <input type="text" name="pais" class="main_container_form_inputs-country" id="pais" input_country>
                             <label class="label_country" for="pais">Pais</label>
                             <ul class="main_container_form_inputs-ul"></ul>
                         </div>
                         <div class="main_container_form-inputs-2" form_inputs-2>
-                            <input class="main_container_form_inputs-city" type="text" name="ciudad" id="ciudad" required input_country>
+                            <input class="main_container_form_inputs-city" type="text" name="ciudad" id="ciudad" required input_city>
                             <label class ="label_city" for="ciudad">Ciudad</label>
                         </div>
                     </section>
@@ -39,7 +40,7 @@
             </section>
         </main>
         
-        <!-- <script src="scripts.js" type="module"></script> -->
+        <script src="src/script.js" type="module"></script>
         <!-- <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
             integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
             crossorigin=""></script> -->

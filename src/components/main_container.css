@@ -28,8 +28,8 @@
 
 label{
     position: absolute;
-    left: 5px;
-    top: 0;
+    /* left: 5px;
+    top: 8px; */
 }
 
 .main_container_form_inputs-country, .main_container_form_inputs-city{
@@ -39,9 +39,14 @@ label{
     height: 2em;
 }
 
-.main_container_form_inputs-country:focus ~ label, .main_container_form_inputs-country:active ~ label, 
-.main_container_form_inputs-city:focus ~ label, 
-.main_container_form_inputs-city:active ~ label, .main_container_form_inputs-country:valid ~ label, .main_container_form_inputs-city:valid ~ label{
+.main_container_form_inputs-country:not(:valid) ~ label, .main_container_form_inputs-country:not(:focus) ~ label, 
+.main_container_form_inputs-city:not(:valid) ~ label, .main_container_form_inputs-city:not(:focus) ~ label{
+    left: 5px;
+    top: 8px;
+    transition: all .5s ease;
+}
+
+.main_container_form_inputs-country:focus ~ label, .main_container_form_inputs-city:focus ~ label, .main_container_form_inputs-city:valid ~ label{
     top: -10px;
     left: 6px;
     z-index: 1;
@@ -49,6 +54,16 @@ label{
     margin: 0;
     outline: 1px;
     transition: all 200ms ease;
+}
+
+.active-label1{
+    top: -10px !important;
+    left: 6px !important;
+    z-index: 1 !important;
+    background-color: white !important;
+    margin: 0 !important;
+    outline: 1px !important;
+    transition: all 200ms ease !important;
 }
 
 /* .main_container_form_inputs-country:not(:active) ~ label, 

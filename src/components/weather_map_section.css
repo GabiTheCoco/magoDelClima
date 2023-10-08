@@ -1,0 +1,13 @@
+.weather_map_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 85%;
+    width: 100%;
+}
+
+.weather_container, .map_container{
+    border: 1px solid #000;
+    width: 45%;
+    height: 90%;
+}
