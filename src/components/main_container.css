@@ -46,7 +46,8 @@ label{
     transition: all .5s ease;
 }
 
-.main_container_form_inputs-country:focus ~ label, .main_container_form_inputs-city:focus ~ label, .main_container_form_inputs-city:valid ~ label{
+.main_container_form_inputs-country:focus ~ label, .main_container_form_inputs-city:focus ~ label, .main_container_form_inputs-city:valid ~ label,
+.main_container_form_inputs-country:not(:placeholder-shown) ~ label, .main_container_form_inputs-city:not(:placeholder-shown) ~ label{
     top: -10px;
     left: 6px;
     z-index: 1;
@@ -56,47 +57,29 @@ label{
     transition: all 200ms ease;
 }
 
-.active-label1{
-    top: -10px !important;
-    left: 6px !important;
-    z-index: 1 !important;
-    background-color: white !important;
-    margin: 0 !important;
-    outline: 1px !important;
-    transition: all 200ms ease !important;
-}
-
-/* .main_container_form_inputs-country:not(:active) ~ label, 
-.main_container_form_inputs-city:not(:active) ~ label{
-    left: 5px;
-    top: 0;
-    transition: all 250ms ease;
-} */
-/* .main_container_form_inputs-country, .main_container_form_inputs-country{
-    padding: 10px;
-    
-}
-
-.label_country, .label_city{
+.main_container_form_inputs-ul{
     position: absolute;
-    top: 0;
-    left: 0;
-    translate: 10px 2px;
-    transition: translate 500ms, scale 500ms;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f00;
+    max-height: 19.375em;
+    /* min-width: 184px; */
+    /* width: auto; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: .3em;
 }
 
-.main_container_form_inputs-country:focus ~
-.label_country, .main_container_form_inputs-country:valid ~
-.label_country{
-    padding-inline: 5px;
-    translate: 10px -14px;
-    scale: 0.7;
+.main_container_form_inputs-ul li{
+    list-style: none;
+    margin: .2em;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-color: #000;
+    border-style: solid;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
 }
-
-.main_container_form_inputs-city:focus,
-.label_city, .main_container_form_inputs-city:valid +
-.label_city{
-    padding-inline: 5px;
-    translate: 10px -14px;
-    scale: 0.7;
-} */

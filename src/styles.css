@@ -11,6 +11,10 @@ html, .body_container{
     width: 100vw;
 }
 
+.body_container{
+    overflow: hidden;
+}
+
 .main_content{
     height: 100%;
     width: 100%;
