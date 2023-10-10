@@ -1,8 +1,8 @@
 .weather_map_container{
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
-    height: 85%;
+    height: 90%;
     width: 100%;
 }
 

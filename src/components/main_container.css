@@ -35,7 +35,7 @@ label{
 .main_container_form_inputs-country, .main_container_form_inputs-city{
     border: 0;
     outline: 1px solid;
-    padding: 3px;
+    padding: 5px;
     height: 2em;
 }
 
@@ -70,6 +70,7 @@ label{
     overflow-y: scroll;
     overflow-x: hidden;
     padding: .3em;
+    z-index: 1100;
 }
 
 .main_container_form_inputs-ul li{
@@ -83,3 +84,7 @@ label{
     text-align: center;
     cursor: pointer;
 }
+
+/* .leaflet-control-zoom, .leaflet-bar, .leaflet-control{
+    z-index: 1;
+} */
