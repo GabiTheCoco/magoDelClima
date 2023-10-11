@@ -8,6 +8,7 @@ let form_block = document.querySelector("[main_container-form]");
 let header_section = document.querySelector("[main_container]");
 let main = document.querySelector("[main_content]");
 let countryUl = document.querySelector(".main_container_form_inputs-ul");
+let button = document.querySelector(".main_container_form-button");
 
 let weather_map_section = document.createElement("section");
 let weather_container = document.createElement("div");
@@ -98,6 +99,11 @@ export function changePresentation(change){
         main.style.justifyContent = "space-between";
         // header_section.style.flexDirection = "column";
         weather_map_section.style.display = 'flex';
+
+        button.innerHTML = " ";
+        button.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i>`;
+        button.style.fontSize = "1.2em";
+        button.style.borderRadius = "40%";
     }else{
     }
 }

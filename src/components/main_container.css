@@ -35,7 +35,7 @@ label{
 .main_container_form_inputs-country, .main_container_form_inputs-city{
     border-bottom: 1px solid #000;
     /* outline: 1px solid; */
-    padding: 5px;
+    padding-left: 5px;
     height: 2em;
     font-size: 1em;
     width: 80%;
