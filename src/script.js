@@ -1,5 +1,6 @@
 import { createLI } from "./components/countries.js";
 import { getWeatherData, getMapData, weatherWatcher } from "./components/getData.js";
+import { crearCositas } from "./components/createWeatherDivs.js";
 
 let input_country = document.querySelector("[input_country]");
 let input_city = document.querySelector("[input_city]");
@@ -19,13 +20,14 @@ let change = JSON.parse(localStorage.getItem("change")) || [];
 console.log(change);
 let codeIso = localStorage.getItem("codeIso");
 let city = localStorage.getItem("city");
+let validation = JSON.parse(localStorage.getItem("validation")) || [];
 
 
 
 if(codeIso && city && change){
     // changePresentation(change);
     // getWeatherData(city, codeIso, mapa);
-    weatherWatcher(codeIso, city, mapa);
+    weatherWatcher(codeIso, city, validation, mapa);
 }
 
 createLI();
@@ -76,14 +78,11 @@ countries.forEach(countrie => {
 
 form_block.addEventListener('submit', (event) => {
     event.preventDefault();
-    
-    localStorage.setItem("change", "true");
-    change = JSON.parse(localStorage.getItem("change"));
-    changePresentation(change);
-
-    weatherWatcher(input_country.getAttribute("codeIso"), input_city.value, mapa);
-    
-
+    // localStorage.setItem("change", "true");
+    // change = JSON.parse(localStorage.getItem("change"));
+    // changePresentation(change);
+    let validation = countryValidation(input_country.value);
+    weatherWatcher(input_country.getAttribute("codeIso"), input_city.value, validation, mapa);
 });
 
 export function changePresentation(change){
@@ -110,5 +109,19 @@ function createWeatherMapSection() {
     weather_map_section.appendChild(weather_container);
     weather_map_section.appendChild(map_container);
     main.appendChild(weather_map_section);
+    crearCositas(weather_container);
 }
 
+function countryValidation(countryValue){
+    let country_entered = countryValue.toUpperCase();
+    let validation = false;
+    countries.forEach((countrie => {
+        if (country_entered.includes(countrie.textContent.toUpperCase())) {
+            input_country.setAttribute("codeIso", countrie.getAttribute("value"));
+            validation = true;
+            return validation;
+        } else {
+            return validation;
+        }
+    }));
+}

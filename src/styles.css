@@ -1,9 +1,23 @@
 *{
     margin: 0;
     padding: 0;
+    border: 0;
     box-shadow: 0;
     box-sizing: 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la pista de la barra de desplazamiento */
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color del "pulgar" de la barra de desplazamiento (la parte que puedes arrastrar) */
+    border-radius: 6px; /* Bordes redondeados para el pulgar */
 }
 
 html, .body_container{
