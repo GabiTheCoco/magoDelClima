@@ -1,8 +1,8 @@
-
+import { changePresentation } from "../script.js";
 
 const apiKey = "85b829803b65c076df4ed662788af52f";
 
-export function getWeatherData(city, country, map){
+export function getWeatherData(country, city, map){
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric&lang=es`;
 
     fetch(url)
@@ -63,3 +63,28 @@ export function changePosition(lat, long, map, city, country){
     })
     
 }
+
+export function weatherWatcher(codeIso, city, map){
+
+    if(codeIso === "" && city === ""){
+        alert("Seleccione un país de la lista, por favor.");
+    }else{
+        localStorage.setItem("change", "true");
+        let change = JSON.parse(localStorage.getItem("change"));
+        changePresentation(change);
+        getWeatherData(codeIso, city, map);
+    }
+
+}
+
+// let countries = document.querySelectorAll(".countryLi")
+// function countryValidation(countryValue){
+//     let country_entered = countryValue.toUpperCase();
+//     countries.forEach((countrie => {
+//         if (country_entered.includes(searchTerm)) {
+//             countrie.style.display = 'block';
+//         } else {
+//             countrie.style.display = 'none';
+//         }
+//     });
+// }

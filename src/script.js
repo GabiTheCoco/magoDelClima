@@ -1,5 +1,5 @@
 import { createLI } from "./components/countries.js";
-import { getWeatherData, getMapData } from "./components/getData.js";
+import { getWeatherData, getMapData, weatherWatcher } from "./components/getData.js";
 
 let input_country = document.querySelector("[input_country]");
 let input_city = document.querySelector("[input_city]");
@@ -22,9 +22,10 @@ let city = localStorage.getItem("city");
 
 
 
-if(codeIso && city){
-    getWeatherData(city, codeIso, mapa);
-    changePresentation(change);
+if(codeIso && city && change){
+    // changePresentation(change);
+    // getWeatherData(city, codeIso, mapa);
+    weatherWatcher(codeIso, city, mapa);
 }
 
 createLI();
@@ -35,11 +36,13 @@ input_country.addEventListener("click", () => {
     countryUl.style.display = "flex";
     countryUl.style.justifyContent = "start";
     countryUl.style.width = input_country.style.width;
+    countryUl.style.minWidth = input_country.style.width;
 });
 
 
 // Filtrar por nombre la lista de paises
 let countries = document.querySelectorAll(".countryLi");
+
 input_country.addEventListener('input', function() {
     const searchTerm = input_country.value.toUpperCase();
 
@@ -64,6 +67,8 @@ document.addEventListener("click", (event) => {
 countries.forEach(countrie => {
     countrie.addEventListener("click", () => {
         input_country.value = countrie.textContent;
+        let codigoIso = countrie.getAttribute("value");
+        input_country.setAttribute("codeIso", codigoIso);
         countryUl.style.display = "none";
     })
 });
@@ -76,7 +81,8 @@ form_block.addEventListener('submit', (event) => {
     change = JSON.parse(localStorage.getItem("change"));
     changePresentation(change);
 
-    getWeatherData(input_city.value, input_country.value, mapa);
+    weatherWatcher(input_country.getAttribute("codeIso"), input_city.value, mapa);
+    
 
 });
 
@@ -91,7 +97,7 @@ export function changePresentation(change){
         form_block.style.width = "35%";
         main.style.flexDirection = "column";
         main.style.justifyContent = "space-between";
-        header_section.style.flexDirection = "column";
+        // header_section.style.flexDirection = "column";
         weather_map_section.style.display = 'flex';
     }else{
     }
@@ -105,3 +111,4 @@ function createWeatherMapSection() {
     weather_map_section.appendChild(map_container);
     main.appendChild(weather_map_section);
 }
+
