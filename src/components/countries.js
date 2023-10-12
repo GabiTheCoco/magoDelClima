@@ -1,4 +1,4 @@
-const paisesONU = [
+export const paisesONU = [
     "Afganistán", "AF",
     "Albania", "AL",
     "Alemania", "DE",

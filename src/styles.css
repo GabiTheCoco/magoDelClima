@@ -1,11 +1,22 @@
+:root {
+    --color-background: #D7EEF2; /* Fondo principal de la aplicación, puede representar un cielo despejado o un fondo general. */
+    --color-card-background: #EAF6F8; /* Fondo de las tarjetas que muestran información detallada del clima. */
+    --color-text: #2A2A2A; /* Color principal de texto, legible y adecuado para información. */
+    --color-highlight: #B0DEE5; /* Para resaltar elementos, como botones o detalles importantes. */
+    --color-divider: #FDFEFE; /* Líneas divisoras o bordes que separan secciones de la interfaz. */
+    --color-accent: #000000; /* Para elementos de alto contraste, como iconos o texto destacado. */
+}
+
 *{
     margin: 0;
     padding: 0;
     border: 0;
     box-shadow: 0;
     box-sizing: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--color-divider);
 }
+
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -23,6 +34,7 @@
 html, .body_container{
     height: 100vh;
     width: 100vw;
+    background-color: #333636;
 }
 
 .body_container{

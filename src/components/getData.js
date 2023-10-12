@@ -1,4 +1,5 @@
 import { changePresentation } from "../script.js";
+import { paisesONU } from "./countries.js";
 
 const apiKey = "85b829803b65c076df4ed662788af52f";
 
@@ -18,7 +19,8 @@ export function getWeatherData(country, city, map, change){
             localStorage.setItem("lat", dataJson.coord.lat);
             localStorage.setItem("lon", dataJson.coord.lon);
             // changePresentation(change);
-            changePosition(dataJson.coord.lat, dataJson.coord.lon, map, dataJson.name, dataJson.sys.country);
+            let nombrePais = buscarNombrePais(dataJson.sys.country);
+            changePosition(dataJson.coord.lat, dataJson.coord.lon, map, dataJson.name, nombrePais);
             showData(dataJson);
             localStorage.setItem("change", "true");
             console.log(dataJson);
@@ -33,6 +35,7 @@ export function showData(data){
     const {main:{temp, feels_like, humidity, temp_max, temp_min}, weather:[arr], sys:{sunrise, sunset}, timezone} = data;
     
     let city_country_name = document.querySelector(".city_country_name");
+    let country_name = buscarNombrePais(data.sys.country);
     let img_temp = document.querySelector(".img_temp");
     let actual_temp = document.querySelector(".actual_temp");
     let actual_sensation = document.querySelector(".actual_sensation");
@@ -42,7 +45,7 @@ export function showData(data){
     let sunr = document.querySelector(".sunrise");
     let suns = document.querySelector(".sunset");
     
-    city_country_name.innerHTML = data.name +", " + data.sys.country;
+    city_country_name.innerHTML = data.name +", " + country_name;
 
     img_temp.src = `https://openweathermap.org/img/wn/${arr.icon}@2x.png`;
     actual_temp.innerHTML = Math.round(temp) + "°c";
@@ -100,7 +103,7 @@ export function changePosition(lat, long, map, city, country){
         bandera = false;
     }
     
-
+    
     let marcador = L.marker([lat, long]).addTo(map).bindPopup((city + ", " + country));
 
     marcador.on("dblclick", () => {
@@ -120,6 +123,13 @@ export function weatherWatcher(codeIso, city, validation, map){
         getWeatherData(codeIso, city, map, change);
     }
 
+}
+
+function buscarNombrePais(codigoPais){
+
+    let posicion =  paisesONU.indexOf(codigoPais) - 1;
+
+    return paisesONU[posicion];
 }
 
 // let countries = document.querySelectorAll(".countryLi");

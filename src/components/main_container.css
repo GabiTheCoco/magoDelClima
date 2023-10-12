@@ -1,3 +1,12 @@
+:root {
+    --color-background: #D7EEF2; /* Fondo principal de la aplicación, puede representar un cielo despejado o un fondo general. */
+    --color-card-background: #EAF6F8; /* Fondo de las tarjetas que muestran información detallada del clima. */
+    --color-text: #2A2A2A; /* Color principal de texto, legible y adecuado para información. */
+    --color-highlight: #B0DEE5; /* Para resaltar elementos, como botones o detalles importantes. */
+    --color-divider: #FDFEFE; /* Líneas divisoras o bordes que separan secciones de la interfaz. */
+    --color-accent: #000000; /* Para elementos de alto contraste, como iconos o texto destacado. */
+}
+
 .main_container{
     width: 70%;
     height: 100%;
@@ -35,10 +44,11 @@ label{
 .main_container_form_inputs-country, .main_container_form_inputs-city{
     border-bottom: 1px solid #000;
     /* outline: 1px solid; */
-    padding-left: 5px;
+    padding: 2px;
     height: 2em;
     font-size: 1em;
     width: 80%;
+    background-color: transparent;
 }
 
 .main_container_form_inputs-country:focus, .main_container_form_inputs-city:focus{
@@ -57,13 +67,13 @@ label{
 .main_container_form_inputs-country:not(:placeholder-shown) ~ label, .main_container_form_inputs-city:not(:placeholder-shown) ~ label{
     top: -10px;
     left: 6px;
-    font-size: .9em;
+    /* font-size: 1em; */
     z-index: 1;
     background-color: white;
     margin: 0;
     /* outline: 1px; */
     transition: all 200ms ease;
-    letter-spacing: 2px;
+    /* letter-spacing: 2px; */
 }
 
 .main_container_form_inputs-ul{
@@ -104,8 +114,9 @@ label{
     font-size: .9em;
     border: 1px solid #000;
     border-radius: .8em;
-    background-color: #f1f1f1;
+    background-color: transparent;
     transition: all .5s ease;
+    color: var(--color-text);
 }
 
 .main_container_form-button:hover, .main_container_form-button:focus, .main_container_form-button:active{

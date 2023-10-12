@@ -1,30 +1,40 @@
+:root {
+    --color-background: #D7EEF2; /* Fondo principal de la aplicación, puede representar un cielo despejado o un fondo general. */
+    --color-card-background: #EAF6F8; /* Fondo de las tarjetas que muestran información detallada del clima. */
+    --color-text: #2A2A2A; /* Color principal de texto, legible y adecuado para información. */
+    --color-highlight: #B0DEE5; /* Para resaltar elementos, como botones o detalles importantes. */
+    --color-divider: #FDFEFE; /* Líneas divisoras o bordes que separan secciones de la interfaz. */
+    --color-accent: #000000; /* Para elementos de alto contraste, como iconos o texto destacado. */
+  }
+
 .weather_map_container{
     display: none;
     justify-content: space-around;
     align-items: center;
-    height: 90%;
+    height: 85%;
     width: 100%;
+    /* background-color: #EAF6F8; */
 }
 
 .weather_container, .map_container{
-    border: 1px solid #000;
     width: 45%;
     height: 90%;
     border-radius: .6em;
 }
 
-.map_container{
+/* .map_container{
     width: calc(45% + .8em);
     height: calc(90% + .8em);
-}
+} */
 
 .weather_container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: .8em;
-    background-color: #f3d3d3;
+    /* padding: .8em; */
+    background-color: transparent;
+    box-shadow: 0px 5px 15px 5px #ffffff10;
 }
 
 .city_country_name{
@@ -36,18 +46,21 @@
 
 .main_temp_container{
     display: flex;
-    width: calc(100% - 1.6em);
-    height: 40%;
+    /* width: calc(100% - 1.6em); */
+    height: 50%;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .temp_container{
     display: flex;
-    width: 50%;
+    justify-content: space-evenly;
+    width: 60%;
     height: 100%;
 }
 
 .img_temp_container{
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -56,10 +69,11 @@
 
 .img_temp{
     object-fit: contain;
+    scale: 1.2;
 }
 
 .actual_temp_sensation_container{
-    width: 50%;
+    width:55%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -67,30 +81,37 @@
 
 .actual_temp_container, .actual_sensation_container{
     width: 100%;
-    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.actual_temp_container{
+    height: 55%;
+}
+
+.actual_sensation_container{
+    height: 45%;
+}
+
 .actual_temp{
-    font-size: 3em;
-    margin-top: .3em;
+    font-size: 4em;
+    margin-top: .2em;
 }
 
 .actual_sensation{
-    font-size: 2em;
-    margin-top: .3em;
+    font-size: 3em;
+    margin-top: .2em;
 }
 
 .min_max_temp_container{
-    width: 50%;
+    width: 25%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .min_temp_container, .max_temp_container{
@@ -103,19 +124,20 @@
 }
 
 .min_temp, .max_temp{
-    font-size: 2.5em;
+    font-size: 3em;
     margin-top: .3em;
 }
 
 .secundary_wheater_container{
     width: 100%;
-    height: 40%;
+    height: 20%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .humidity_container{
-    width: 50%;
+    width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -124,15 +146,15 @@
 }
 
 .humidity{
-    font-size: 2em;
+    font-size: 3em;
     margin-top: .3em;
 }
 
 .sunrise_sunset_container{
-    width: 50%;
+    width: 55%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -147,11 +169,12 @@
 }
 
 .sunrise, .sunset{
-    font-size: 2em;
+    font-size: 2.8em;
     margin-top: .3em;
 }
 
 .actual_temp_label, .actual_sensation_label, .min_temp_label, .max_temp_label, .humidity_label, .sunrise_label, .sunset_label{
-    font-size: .8em;
-    font-weight: 600;
+    font-size: .9em;
+    font-weight: 400;
+    border-bottom: 1px solid #000;
 }

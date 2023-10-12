@@ -89,14 +89,17 @@ form_block.addEventListener('submit', (event) => {
 export function changePresentation(change){
     if(change){
         header_section.style.flexDirection = "row";
-        header_section.style.height = "10%";
-        header_section.style.width = "100%";
+        header_section.style.height = "12%";
+        header_section.style.width = "99%";
+        header_section.style.borderRadius = ".6em"
         header_section.style.justifyContent = "space-around";
+        main.style.justifyContent = "center";
+        header_section.style.boxShadow = "0px 0px 15px 12px #ffffff10";
         form_block.style.flexDirection = "row";
         form_block.style.height = "auto";
         form_block.style.width = "35%";
         main.style.flexDirection = "column";
-        main.style.justifyContent = "space-between";
+        // main.style.justifyContent = "space-between";
         // header_section.style.flexDirection = "column";
         weather_map_section.style.display = 'flex';
 
