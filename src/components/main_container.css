@@ -5,6 +5,7 @@
     --color-highlight: #B0DEE5; /* Para resaltar elementos, como botones o detalles importantes. */
     --color-divider: #FDFEFE; /* Líneas divisoras o bordes que separan secciones de la interfaz. */
     --color-accent: #000000; /* Para elementos de alto contraste, como iconos o texto destacado. */
+    --color-ul: #2c2c2c;
 }
 
 .main_container{
@@ -42,18 +43,27 @@ label{
 }
 
 .main_container_form_inputs-country, .main_container_form_inputs-city{
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid ;
     /* outline: 1px solid; */
-    padding: 2px;
+    padding: 2px 2px 2px 5px;
     height: 2em;
     font-size: 1em;
     width: 80%;
     background-color: transparent;
+    color: var(--color-divider);
 }
 
 .main_container_form_inputs-country:focus, .main_container_form_inputs-city:focus{
     outline: none;
-    border-bottom: 2px solid #000;
+    border: 1px solid #ccc;
+    /* border-color: #000; */
+    transition: border .5s ease;
+    border-radius: .6em;
+}
+
+.main_container_form_inputs-country:not(:placeholder-shown), .main_container_form_inputs-city:not(:placeholder-shown){
+    border: 1px solid #ccc;
+    border-radius: .6em;
 }
 
 .main_container_form_inputs-country:not(:valid) ~ label, .main_container_form_inputs-country:not(:focus) ~ label, 
@@ -66,13 +76,16 @@ label{
 .main_container_form_inputs-country:focus ~ label, .main_container_form_inputs-city:focus ~ label, .main_container_form_inputs-city:valid ~ label,
 .main_container_form_inputs-country:not(:placeholder-shown) ~ label, .main_container_form_inputs-city:not(:placeholder-shown) ~ label{
     top: -10px;
-    left: 6px;
+    left: 9px;
     /* font-size: 1em; */
     z-index: 1;
-    background-color: white;
+    /* background-color: white; */
     margin: 0;
     /* outline: 1px; */
     transition: all 200ms ease;
+    color: #ccc;
+    font-size: .8em;
+    background-color: #333636;
     /* letter-spacing: 2px; */
 }
 
@@ -82,7 +95,7 @@ label{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #F1F1F1;
+    background-color: var(--color-ul);
     max-height: 19.375em;
     /* min-width: 184px; */
     /* width: auto; */
@@ -108,23 +121,25 @@ label{
     cursor: pointer;
 }
 
+.main_container_form_inputs-ul li:hover{
+    background-color: #a1a1a1;
+    transition: all .5s ease;
+}
+
 .main_container_form-button{
     cursor: pointer;
     padding: .6em;
     font-size: .9em;
-    border: 1px solid #000;
+    border: 1px solid var(--color-text);
     border-radius: .8em;
     background-color: transparent;
     transition: all .5s ease;
-    color: var(--color-text);
+    color: var(--color-divider);
 }
 
 .main_container_form-button:hover, .main_container_form-button:focus, .main_container_form-button:active{
-    background-color: #111111;
-    border: 1px solid #fff;
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-card-background);
     color: #f5f5f5;
     transition: all .5s ease;
 }
-/* .leaflet-control-zoom, .leaflet-bar, .leaflet-control{
-    z-index: 1;
-} */

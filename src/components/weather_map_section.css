@@ -9,11 +9,10 @@
 
 .weather_map_container{
     display: none;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     height: 85%;
     width: 100%;
-    /* background-color: #EAF6F8; */
 }
 
 .weather_container, .map_container{
@@ -21,11 +20,6 @@
     height: 90%;
     border-radius: .6em;
 }
-
-/* .map_container{
-    width: calc(45% + .8em);
-    height: calc(90% + .8em);
-} */
 
 .weather_container{
     display: flex;

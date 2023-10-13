@@ -131,19 +131,3 @@ function buscarNombrePais(codigoPais){
 
     return paisesONU[posicion];
 }
-
-// let countries = document.querySelectorAll(".countryLi");
-// let input_country = document.querySelector("[input_country]");
-// function countryValidation(countryValue){
-//     let country_entered = countryValue.toUpperCase();
-//     let validation = false;
-//     countries.forEach((countrie => {
-//         if (country_entered.includes(countrie.textContent.toUpperCase())) {
-//             input_country.setAttribute("codeIso", countrie.getAttribute("value"));
-//             validation = true;
-//             return validation;
-//         } else {
-//             return validation;
-//         }
-//     }));
-// }
