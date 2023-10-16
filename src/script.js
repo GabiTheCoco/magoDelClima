@@ -12,7 +12,9 @@ let button = document.querySelector(".main_container_form-button");
 
 let weather_map_section = document.createElement("section");
 let weather_container = document.createElement("div");
+let map_list = document.createElement("div");
 let map_container = document.createElement("div");
+
 
 createWeatherMapSection();
 let mapa = getMapData(map_container);
@@ -113,8 +115,44 @@ export function changePresentation(change){
 
 function createWeatherMapSection() {
     weather_map_section.classList.add("weather_map_container");
+    map_list.classList.add("map_list_container");
     weather_container.classList.add("weather_container");
     map_container.classList.add("map_container");
+
+    let temp_layer = document.createElement("div");
+    temp_layer.classList.add("temp_layer-div");
+    temp_layer.setAttribute("map_layer", "");
+    temp_layer.innerHTML = "T";
+
+    let cloud_layer = document.createElement("div");
+    cloud_layer.classList.add("cloud_layer-div");
+    cloud_layer.setAttribute("map_layer", "");
+    cloud_layer.innerHTML = "C"
+
+    let precipitation_layer = document.createElement("div");
+    precipitation_layer.classList.add("precipitation_layer-div");
+    precipitation_layer.setAttribute("map_layer", "");
+    precipitation_layer.innerHTML = "PC"
+
+    let pressure_layer = document.createElement("div");
+    pressure_layer.classList.add("pressure_layer-div");
+    pressure_layer.setAttribute("map_layer", "");
+    pressure_layer.innerHTML = "PS";
+
+    
+    let wind_layer = document.createElement("div");
+    wind_layer.classList.add("wind_layer-div");
+    wind_layer.setAttribute("map_layer", "");
+    wind_layer.innerHTML = "W";
+
+    map_list.appendChild(temp_layer);
+    map_list.appendChild(cloud_layer);
+    map_list.appendChild(precipitation_layer);
+    map_list.appendChild(pressure_layer);
+    map_list.appendChild(wind_layer);
+
+    map_container.appendChild(map_list);
+     
     weather_map_section.appendChild(weather_container);
     weather_map_section.appendChild(map_container);
     main.appendChild(weather_map_section);

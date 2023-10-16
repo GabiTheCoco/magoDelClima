@@ -1,6 +1,8 @@
 import { changePresentation } from "../script.js";
 import { paisesONU } from "./countries.js";
 
+let actual_layer;
+
 const apiKey = "85b829803b65c076df4ed662788af52f";
 
 export function getWeatherData(country, city, map, change){
@@ -24,6 +26,7 @@ export function getWeatherData(country, city, map, change){
             showData(dataJson);
             localStorage.setItem("change", "true");
             console.log(dataJson);
+            getMapElection(map);
         }
     })
     .catch(error => {
@@ -86,11 +89,38 @@ export function getMapData(map_container){
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-    }).addTo(map);
+    actual_layer = L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+    });
+
+    actual_layer.addTo(map);
     
     return map;
 }
+
+function getMapElection(map){
+    let map_options = document.querySelectorAll("[map_layer]");
+    let layer_names = ["temp_new", "clouds_new", "precipitation_new", "pressure_new", "wind_new"] ;
+
+
+    map_options.forEach( (option, index) => {
+        option.addEventListener("click", () => {
+            console.log(layer_names[index]);
+            if(index != 0){
+                actual_layer.remove();
+                actual_layer = L.tileLayer(`https://tile.openweathermap.org/map/${layer_names[index]}/{z}/{x}/{y}.png?appid=${apiKey}`, {
+                });
+                actual_layer.addTo(map);
+            }else{
+                actual_layer.remove();
+                actual_layer = L.tileLayer(`https://tile.openweathermap.org/map/${layer_names[0]}/{z}/{x}/{y}.png?appid=${apiKey}`, {
+                });
+                actual_layer.addTo(map);
+            }
+            
+        });
+    });
+}
+
 
 let bandera = true;
 

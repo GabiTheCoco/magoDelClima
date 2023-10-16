@@ -80,7 +80,7 @@ export function crearCositas(bloqueClima){
     sunset.classList.add("sunset");
 
 
-    actual_temp_label.innerHTML += "Temparatura";
+    actual_temp_label.innerHTML += "Temperatura";
     actual_sensation_label.innerHTML  += "Sensación térmica";
     min_temp_label.innerHTML += "Temperatura mínima";
     max_temp_label.innerHTML += "Temperatura máxima";
