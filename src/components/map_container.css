@@ -39,6 +39,11 @@
     color: black !important;
 }
 
+.actual_layer{
+    background-color: #c9c9c9;
+    transition: all .5s ease;
+}
+
 @media screen and (min-width: 1920px){
     .map_list_container{
         top: 12%;

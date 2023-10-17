@@ -21,6 +21,7 @@ let mapa = getMapData(map_container);
 
 let change = JSON.parse(localStorage.getItem("change")) || [];
 console.log(change);
+
 let codeIso = localStorage.getItem("codeIso");
 let city = localStorage.getItem("city");
 let validation = JSON.parse(localStorage.getItem("validation")) || [];
@@ -28,7 +29,7 @@ let validation = JSON.parse(localStorage.getItem("validation")) || [];
 
 
 if(codeIso && city && change){
-    // changePresentation(change);
+    changePresentation(change);
     // getWeatherData(city, codeIso, mapa);
     weatherWatcher(codeIso, city, validation, mapa);
 }

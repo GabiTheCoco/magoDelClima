@@ -15,12 +15,13 @@ export function getWeatherData(country, city, map, change){
     .then(dataJson => {
         if(dataJson.cod === '404' || dataJson.cod === '401'){
             alert('País o ciudad equivocada, intente de nuevo por favor.');
-        } else{          
+        } else{
+            changePresentation(change);
+            console.log("anachi");
             localStorage.setItem("codeIso", country);
             localStorage.setItem("city", city);
             localStorage.setItem("lat", dataJson.coord.lat);
             localStorage.setItem("lon", dataJson.coord.lon);
-            // changePresentation(change);
             let nombrePais = buscarNombrePais(dataJson.sys.country);
             changePosition(dataJson.coord.lat, dataJson.coord.lon, map, dataJson.name, nombrePais);
             showData(dataJson);
@@ -100,23 +101,24 @@ export function getMapData(map_container){
 function getMapElection(map){
     let map_options = document.querySelectorAll("[map_layer]");
     let layer_names = ["temp_new", "clouds_new", "precipitation_new", "pressure_new", "wind_new"] ;
+    let indice_anterior = 0;
 
+    map_options[indice_anterior].classList.add("actual_layer");
+    
 
     map_options.forEach( (option, index) => {
         option.addEventListener("click", () => {
-            console.log(layer_names[index]);
-            if(index != 0){
+            if(!option.classList.contains("actual_layer")){
+
                 actual_layer.remove();
                 actual_layer = L.tileLayer(`https://tile.openweathermap.org/map/${layer_names[index]}/{z}/{x}/{y}.png?appid=${apiKey}`, {
                 });
                 actual_layer.addTo(map);
-            }else{
-                actual_layer.remove();
-                actual_layer = L.tileLayer(`https://tile.openweathermap.org/map/${layer_names[0]}/{z}/{x}/{y}.png?appid=${apiKey}`, {
-                });
-                actual_layer.addTo(map);
+
+                option.classList.add("actual_layer");
+                map_options[indice_anterior].classList.remove("actual_layer");
+                indice_anterior = index;
             }
-            
         });
     });
 }
@@ -145,11 +147,11 @@ export function changePosition(lat, long, map, city, country){
 export function weatherWatcher(codeIso, city, validation, map){
     if(codeIso === "" || codeIso === null && city === "" && !validation){
         alert("Seleccione un país de la lista o ingreselo correctamente, por favor.");
+        localStorage.setItem("validation", "false");
     }else{
         localStorage.setItem("validation", "true");
         localStorage.setItem("change", "true");
         let change = JSON.parse(localStorage.getItem("change"));
-        changePresentation(change);
         getWeatherData(codeIso, city, map, change);
     }
 
