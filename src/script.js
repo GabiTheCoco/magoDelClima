@@ -122,34 +122,65 @@ function createWeatherMapSection() {
     let temp_layer = document.createElement("div");
     temp_layer.classList.add("temp_layer-div");
     temp_layer.setAttribute("map_layer", "");
-    temp_layer.innerHTML = "T";
+    let temp_a = document.createElement("a");
+    temp_a.setAttribute("title", "Temperatura");
+    let temp_icon = document.createElement("i");
+    temp_icon.classList.add("fa-solid", "fa-temperature-half");
+    // temp_layer.innerHTML = "T";
 
     let cloud_layer = document.createElement("div");
     cloud_layer.classList.add("cloud_layer-div");
     cloud_layer.setAttribute("map_layer", "");
-    cloud_layer.innerHTML = "C"
+    let cloud_a  = document.createElement("a");
+    cloud_a.setAttribute("title", "Nubes");
+    let cloud_icon = document.createElement("i");
+    cloud_icon.classList.add("fa-solid", "fa-cloud");
+    // cloud_layer.innerHTML = "C";
 
     let precipitation_layer = document.createElement("div");
     precipitation_layer.classList.add("precipitation_layer-div");
     precipitation_layer.setAttribute("map_layer", "");
-    precipitation_layer.innerHTML = "PC"
+    let precipitation_a = document.createElement("a");
+    precipitation_a.setAttribute("title", "Precipitationes");
+    let precipitation_icon = document.createElement("i");
+    precipitation_icon.classList.add("fa-solid", "fa-cloud-showers-heavy");
+    // precipitation_layer.innerHTML = "PC";
 
     let pressure_layer = document.createElement("div");
     pressure_layer.classList.add("pressure_layer-div");
     pressure_layer.setAttribute("map_layer", "");
-    pressure_layer.innerHTML = "PS";
+    let pressure_a = document.createElement("a");
+    pressure_a.setAttribute("title", "Presion Atmosférica");
+    let pressure_icon = document.createElement("i");
+    pressure_icon.classList.add("fa-solid", "fa-arrow-down-short-wide");
+    // pressure_layer.innerHTML = "PS";
 
     
     let wind_layer = document.createElement("div");
     wind_layer.classList.add("wind_layer-div");
     wind_layer.setAttribute("map_layer", "");
-    wind_layer.innerHTML = "W";
+    let wind_a = document.createElement("a");
+    wind_a.setAttribute("title", "Viento");
+    let wind_icon = document.createElement("i");
+    wind_icon.classList.add("fa-solid", "fa-wind");
+    // wind_layer.innerHTML = "W";
 
     map_list.appendChild(temp_layer);
+    temp_layer.appendChild(temp_a);
+    temp_a.appendChild(temp_icon);
+    // temp_layer.appendChild(temp_img);
     map_list.appendChild(cloud_layer);
+    cloud_layer.appendChild(cloud_a);
+    cloud_a.appendChild(cloud_icon);
     map_list.appendChild(precipitation_layer);
+    precipitation_layer.appendChild(precipitation_a);
+    precipitation_a.appendChild(precipitation_icon);
     map_list.appendChild(pressure_layer);
+    pressure_layer.appendChild(pressure_a);
+    pressure_a.appendChild(pressure_icon);
     map_list.appendChild(wind_layer);
+    wind_layer.appendChild(wind_a);
+    wind_a.appendChild(wind_icon);
 
     map_container.appendChild(map_list);
      

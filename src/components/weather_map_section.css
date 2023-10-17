@@ -172,3 +172,61 @@
     font-weight: 400;
     border-bottom: 1px solid #000;
 }
+
+@media only screen and (min-width: 1920px){
+    .city_country_name{
+        font-size: 2.5em;
+    }
+    .img_temp{
+        scale: 2;
+    }
+    .actual_temp_label{
+        font-size: 1.8em;
+    }
+    .actual_sensation_label{
+        font-size: 1.5em;
+    }
+    .actual_temp{
+        font-size: 7em;
+    }
+    .actual_sensation{
+        font-size: 4em;
+    }
+    .min_max_temp_container{
+        width: 30%;
+    }
+    .min_temp_label, .max_temp_label{
+        font-size: 1.5em;
+    }
+    .min_temp, .max_temp{
+        font-size: 4.2em;
+    }
+    .humidity_label, .sunrise_label, .sunset_label{
+        font-size: 1.8em;
+    }
+    .sunrise, .sunset, .humidity {
+        font-size: 4em;
+    }
+}
+
+@media only screen and (max-width: 1282px){
+    .min_temp_label, .max_temp_label{
+        font-size: 0.7em;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait){
+    .min_temp_label, .max_temp_label{
+        font-size: 0.7em;
+    }
+    .sunrise, .sunset, .humidity {
+        font-size: 2.3em;
+    }
+
+}
+
+@media only screen and (max-width: 575px) and (orientation: portrait){
+    .weather_map_container{
+        flex-direction: column;
+    }
+}

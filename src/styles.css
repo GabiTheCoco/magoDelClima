@@ -54,4 +54,12 @@ html, .body_container{
     color: var(--color-divider);
 }
 
-
+@media only screen and (max-width: 575px) and (orientation: portrait){
+    .body_container{
+        height: 150vh;
+        overflow-y: scroll;
+    }
+    .main_content{
+        justify-content: space-around;
+    }
+}
