@@ -159,6 +159,12 @@ label{
     }
 }
 
+@media only screen and (max-width: 767px){
+    .main_container-form{
+        height: 9%;
+    }
+}
+
 @media only screen and (max-width: 575px) and (orientation: portrait){
     .main_container-form{
         width: 45%;

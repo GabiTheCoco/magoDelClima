@@ -10,6 +10,10 @@ let main = document.querySelector("[main_content]");
 let countryUl = document.querySelector(".main_container_form_inputs-ul");
 let button = document.querySelector(".main_container_form-button");
 
+let weather_map_select = document.createElement("div");
+let weather_data = document.createElement("div");
+let map_data = document.createElement("div");
+
 let weather_map_section = document.createElement("section");
 let weather_container = document.createElement("div");
 let map_list = document.createElement("div");
@@ -17,6 +21,18 @@ let map_container = document.createElement("div");
 
 
 createWeatherMapSection();
+
+let weather_map_options = document.querySelectorAll(".option");
+
+weather_map_options.forEach(option => {
+    option.addEventListener("click", () => {
+        weather_map_options.forEach(option2 => {
+            option2.classList.remove("actual");
+        })
+        option.classList.add("actual");
+    })
+})
+
 let mapa = getMapData(map_container);
 
 let change = JSON.parse(localStorage.getItem("change")) || [];
@@ -115,6 +131,13 @@ export function changePresentation(change){
 }
 
 function createWeatherMapSection() {
+
+    weather_map_select.classList.add("weather_map_select");
+    weather_data.classList.add("weather_data", "option", "actual");
+    weather_data.innerHTML = "Clima";
+    map_data.classList.add("map_data", "option");
+    map_data.innerHTML = "Mapa";
+
     weather_map_section.classList.add("weather_map_container");
     map_list.classList.add("map_list_container");
     weather_container.classList.add("weather_container");
@@ -187,6 +210,9 @@ function createWeatherMapSection() {
      
     weather_map_section.appendChild(weather_container);
     weather_map_section.appendChild(map_container);
+    main.appendChild(weather_map_select);
+    weather_map_select.appendChild(weather_data);
+    weather_map_select.appendChild(map_data);
     main.appendChild(weather_map_section);
     crearCositas(weather_container);
 }
