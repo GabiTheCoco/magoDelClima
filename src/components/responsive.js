@@ -25,19 +25,29 @@ export function mobileOptions(){
 
     console.log(weather_options);
     let indice_anterior = 0;
+
+
+    weather_options.forEach(elemento => {
+      elemento.addEventListener('click', () => {
+        weather_options.forEach(e => e.classList.remove('actual_option'));
+        elemento.classList.add('actual_option');
+      });
+    });
+  
+    weather_options[0].classList.add('actual_option');
     
     weather_options.forEach((option, index) => {
         option.addEventListener("click", () => {
             if(index != indice_anterior){
                 weather_data[indice_anterior].classList.remove("opcionMostrada");
-            weather_data[indice_anterior].classList.add("opcionOculta");
+                weather_data[indice_anterior].classList.add("opcionOculta");
 
-            weather_data[index].classList.remove("opcionOculta");
-            weather_data[index].classList.add("opcionMostrada");
-            indice_anterior = index;
+                weather_data[index].classList.remove("opcionOculta");
+                weather_data[index].classList.add("opcionMostrada");
+                indice_anterior = index;
 
-            console.log("anachi");
-            console.log(index);
+                console.log("anachi");
+                console.log(index);
             }
             
             

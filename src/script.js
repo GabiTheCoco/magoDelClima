@@ -125,12 +125,6 @@ export function changePresentation(change){
 
 function createWeatherMapSection() {
 
-    weather_map_select.classList.add("weather_map_select");
-    // weather_data.classList.add("weather_data", "option", "actual");
-    // weather_data.innerHTML = "Clima";
-    // map_data.classList.add("map_data", "option");
-    // map_data.innerHTML = "Mapa";
-
     weather_map_section.classList.add("weather_map_container");
     map_list.classList.add("map_list_container");
     weather_container.classList.add("weather_container", "climateData", "opcionMostrada");
@@ -208,11 +202,7 @@ function createWeatherMapSection() {
      
     weather_map_section.appendChild(weather_container);
     weather_map_section.appendChild(map_container);
-    main.appendChild(weather_map_select);
-    weather_map_select.appendChild(weather_data);
-    weather_map_select.appendChild(map_data);
 
-   
 
     main.appendChild(weather_map_section);
     crearCositas(weather_container);
