@@ -1,6 +1,7 @@
 import { createLI } from "./components/countries.js";
-import { getWeatherData, getMapData, weatherWatcher } from "./components/getData.js";
+import { getMapData, weatherWatcher } from "./components/getData.js";
 import { crearCositas } from "./components/createWeatherDivs.js";
+import { createBar } from "./components/responsive.js"
 
 let input_country = document.querySelector("[input_country]");
 let input_city = document.querySelector("[input_city]");
@@ -22,21 +23,13 @@ let map_container = document.createElement("div");
 
 createWeatherMapSection();
 
-let weather_map_options = document.querySelectorAll(".option");
-
-weather_map_options.forEach(option => {
-    option.addEventListener("click", () => {
-        weather_map_options.forEach(option2 => {
-            option2.classList.remove("actual");
-        })
-        option.classList.add("actual");
-    })
-})
 
 let mapa = getMapData(map_container);
 
 let change = JSON.parse(localStorage.getItem("change")) || [];
 console.log(change);
+
+
 
 let codeIso = localStorage.getItem("codeIso");
 let city = localStorage.getItem("city");
@@ -133,15 +126,15 @@ export function changePresentation(change){
 function createWeatherMapSection() {
 
     weather_map_select.classList.add("weather_map_select");
-    weather_data.classList.add("weather_data", "option", "actual");
-    weather_data.innerHTML = "Clima";
-    map_data.classList.add("map_data", "option");
-    map_data.innerHTML = "Mapa";
+    // weather_data.classList.add("weather_data", "option", "actual");
+    // weather_data.innerHTML = "Clima";
+    // map_data.classList.add("map_data", "option");
+    // map_data.innerHTML = "Mapa";
 
     weather_map_section.classList.add("weather_map_container");
     map_list.classList.add("map_list_container");
-    weather_container.classList.add("weather_container");
-    map_container.classList.add("map_container");
+    weather_container.classList.add("weather_container", "climateData", "opcionMostrada");
+    map_container.classList.add("map_container", "climateData", "opcionOculta");
 
     let temp_layer = document.createElement("div");
     temp_layer.classList.add("temp_layer-div");
@@ -207,12 +200,20 @@ function createWeatherMapSection() {
     wind_a.appendChild(wind_icon);
 
     map_container.appendChild(map_list);
+
+    if(window.innerWidth <= 768){
+        let option_bar_mobile = createBar();
+        weather_map_section.appendChild(option_bar_mobile);
+    }
      
     weather_map_section.appendChild(weather_container);
     weather_map_section.appendChild(map_container);
     main.appendChild(weather_map_select);
     weather_map_select.appendChild(weather_data);
     weather_map_select.appendChild(map_data);
+
+   
+
     main.appendChild(weather_map_section);
     crearCositas(weather_container);
 }

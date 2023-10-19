@@ -230,7 +230,45 @@
 
 }
 
-@media only screen and (max-width: 575px) and (orientation: portrait){
+@media only screen and (max-width: 768px){
+    .weather_map_container{
+        flex-direction: column;
+        height: 80%;
+    }
+
+    .weather_container, .map_container{
+        width: 95%;
+        height: 70%;
+    }
+
+    .bar_container{
+        width: 95%;
+        height: 5%;
+        outline: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bar_content-data, .bar_content-map{
+        width: 50%;
+        text-align: center;
+        align-self: center;
+        cursor: pointer;
+    }
+    
+    .opcionOculta{
+        display: none !important;
+    }
+
+    .opcionMostrada{
+        display: block !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 575px) and (orientation: landscape){
     .weather_map_container{
         flex-direction: column;
     }

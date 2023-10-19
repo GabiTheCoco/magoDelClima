@@ -1,5 +1,6 @@
 import { changePresentation } from "../script.js";
 import { paisesONU } from "./countries.js";
+import { mobileOptions } from "./responsive.js";
 
 let actual_layer;
 let control = false;
@@ -29,6 +30,10 @@ export function getWeatherData(country, city, map, change){
             localStorage.setItem("change", "true");
             console.log(dataJson);
             getMapElection(map);
+
+            if(window.innerWidth <= 768){
+                mobileOptions();
+            }
         }
     })
     .catch(error => {
