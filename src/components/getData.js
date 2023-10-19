@@ -2,6 +2,7 @@ import { changePresentation } from "../script.js";
 import { paisesONU } from "./countries.js";
 
 let actual_layer;
+let control = false;
 
 const apiKey = "85b829803b65c076df4ed662788af52f";
 
@@ -103,9 +104,9 @@ function getMapElection(map){
     let layer_names = ["temp_new", "clouds_new", "precipitation_new", "pressure_new", "wind_new"] ;
     let indice_anterior = 0;
 
-    map_options[indice_anterior].classList.add("actual_layer");
+    if(!control)
+        map_options[indice_anterior].classList.add("actual_layer");
     
-
     map_options.forEach( (option, index) => {
         option.addEventListener("click", () => {
             if(!option.classList.contains("actual_layer")){
@@ -121,6 +122,8 @@ function getMapElection(map){
             }
         });
     });
+
+    control = true;
 }
 
 
