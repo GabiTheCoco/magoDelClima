@@ -78,3 +78,13 @@ html, .body_container{
         justify-content: space-around;
     }
 }
+
+@media only screen and (max-height: 415px) and (orientation: landscape){
+    .body_container{
+        height: 210vh;
+        overflow-y: scroll;
+    }
+    .main_content{
+        justify-content: space-around;
+    }
+}

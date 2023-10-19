@@ -189,3 +189,9 @@ label{
         height: 10%;
     }
 }
+
+@media only screen and (max-height: 415px) and (orientation: landscape){
+    .main_container{
+        height: 18% !important;
+    }
+}

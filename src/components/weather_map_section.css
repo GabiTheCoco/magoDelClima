@@ -349,8 +349,12 @@
     }
 
 
-    .weather_container, .map_container{
+    .weather_container{
         width: 70%;
+    }
+
+    .map_container{
+        width: 95%;
     }
 }
 
@@ -390,8 +394,12 @@
         display: flex !important;
     }
 
-    .weather_container, .map_container{
+    .weather_container{
         width: 70%;
+    }
+
+    .map_container{
+        width: 95%;
     }
 
     .city_country_name{
@@ -432,5 +440,12 @@
     }
     .sunrise, .sunset, .humidity {
         font-size: 3em;
+    }
+}
+
+@media only screen and (max-height: 415px) and (orientation: landscape){
+    
+    .map_container{
+        width: 85%;
     }
 }
